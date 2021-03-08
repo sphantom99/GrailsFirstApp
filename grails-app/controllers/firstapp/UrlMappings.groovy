@@ -9,7 +9,9 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(view:"index")
+        "/departments"(controller:"Landing")
+        "/department/index/$deptid"(controller:"Department")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
