@@ -19,5 +19,7 @@
     </g:each>
 </ul>
 
+<Button> Add an Employee!</Button>
+
 </body>
 </html>

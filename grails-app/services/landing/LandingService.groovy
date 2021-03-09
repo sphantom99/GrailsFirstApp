@@ -9,7 +9,7 @@ class LandingService {
     def temp
     def logger() {
         def db = new Sql(dataSource)
-        def temp = db.rows('SELECT * FROM dept;')
+        temp = db.rows('SELECT * FROM dept;')
         return temp
     }
 }
