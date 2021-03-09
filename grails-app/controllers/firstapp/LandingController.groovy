@@ -2,10 +2,10 @@ package firstapp
 
 class LandingController {
 
-def LandingService
+def landingService
 
     def index() {
-        def depts = LandingService.logger()
+        def depts = landingService.logger()
         //render depts
         render(view: "index", model: [dept: depts])
     }

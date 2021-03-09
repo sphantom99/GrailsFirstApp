@@ -1,8 +1,8 @@
-DROP TABLE Dept;
-CREATE TABLE Dept(
+DROP TABLE dept;
+CREATE TABLE dept(
     id SERIAL PRIMARY KEY,
-    department_name VARCHAR(10)
+    departmentName VARCHAR(10)
 );
 
-INSERT INTO Dept(department_name) VALUES ('Marketing'),('HR'),
+INSERT INTO dept(departmentName) VALUES ('Marketing'),('HR'),
 ('Management'),('Devs');

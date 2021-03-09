@@ -6,10 +6,10 @@ import groovy.sql.Sql
 @Transactional
 class LandingService {
     def dataSource
-
+    def temp
     def logger() {
         def db = new Sql(dataSource)
-        def temp = db.rows('SELECT * FROM dept')
+        def temp = db.rows('SELECT * FROM dept;')
         return temp
     }
 }

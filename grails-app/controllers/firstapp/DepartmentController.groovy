@@ -2,12 +2,12 @@ package firstapp
 
 class DepartmentController {
 
-def EachdepService 
-
+    def eachdepService 
+    def emps
     def index() {
-        def emps = EachdepService.getEmps(params.deptid)
+        def emps = eachdepService.getEmps(params.deptid)
         //render emps
         render(view: "index", model:[employees: emps]) 
-        
+        //
     }
 }
