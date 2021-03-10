@@ -10,7 +10,7 @@
     
     <g:each var="c" in="${dept}">
         <li class="controller">
-            <g:link controller="Department" action="index" params = "[deptid: c.departmentname]">${c.departmentname}</g:link>
+            <g:link controller="Department" action="index" params = "[deptid: c.departmentName]">${c.departmentname}</g:link>
         </li>
     </g:each>
 </ul>

@@ -7,7 +7,7 @@ CREATE TABLE employee (
     dob DATE,
     department INT,
     CONSTRAINT fkdepartment FOREIGN KEY(department) 
-    REFERENCES Dept(id)
+    REFERENCES depts(id)
 );
 
 
