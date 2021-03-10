@@ -6,7 +6,7 @@ class EachdepService {
 
     def dataSource
 
-    def getEmps(String dep) {  
+    def getEmps(dep) {  
         def db = new Sql(dataSource)
         def temps = db.rows('SELECT firstName,lastName,id FROM employee WHERE department IN (SELECT id FROM depts WHERE departmentName = ?)',[dep])
         db.close()

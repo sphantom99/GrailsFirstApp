@@ -7,7 +7,7 @@ import groovy.sql.Sql
 class LandingService {
     def dataSource
     def temp
-    
+
     def getDeps() {
         def db = new Sql(dataSource)
         temp = db.rows('select * from depts')
