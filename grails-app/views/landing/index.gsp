@@ -29,21 +29,31 @@
         </div>
     </div>
     </nav>
-<h1> These are the departments </h1>
+
+<fieldset>
+
 
 <div class="container" style="border-color: red;">
-
+    <legend><h1 style="margin-left: 30%; margin-top: 5%;">Check Out Our Departments! </h1></legend>
     <g:each var="c" in="${dept}">
         
         <g:link controller="Department" action="index" params = "[deptid: c.departmentName]">
         <span style=" margin-left: 40%; min-width: 1000px; ;">
-        <button style="margin-top: 5%; padding-left: 100px; padding-right: 150px; max-width:250px; "type="button" class="btn btn-large .btn-block btn-primary">${c.departmentname}</button>
+        <button style="margin-top: 4%; padding-left: 100px; padding-right: 150px; max-width:250px; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">${c.departmentname}</button>
         </span>
         </g:link>
         <br/>
     </g:each>
 
-</div>
+    <h1 style="margin-left: 45%; margin-top: 5%;">Or...</h1></legend>
+    <g:link controller="Department" action="addForm" >
+        <span style=" margin-left: 40%;">
+        <button style="margin-top: 5%; padding-left: 50px; padding-right: 60px; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Add a Department</button>
+        </span>
+        </g:link>
+        <br/>
 
+</div>
+</fieldset>
 </body>
 </html>

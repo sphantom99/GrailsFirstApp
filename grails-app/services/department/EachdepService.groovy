@@ -14,4 +14,11 @@ class EachdepService {
         db.close()
         return temps
     }
+
+    def addDepartment(depName){
+        def db = new Sql(dataSource)
+        db.execute('''INSERT INTO depts(departmentName) VALUES(?)''',[depName])
+        db.close()
+        return
+    }
 }
