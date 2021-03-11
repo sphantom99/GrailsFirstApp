@@ -21,4 +21,22 @@ class EachdepService {
         db.close()
         return
     }
+
+    def updateDepartment(newDepName,oldDepName){
+        def db = new Sql(dataSource)
+        db.execute('''UPDATE depts 
+                      SET departmentname = ? 
+                      WHERE departmentname = ?''',[newDepName,oldDepName])
+        db.close()
+        return
+    }
+
+    def deleteDepartment(depname){
+        def db = new Sql(dataSource)
+        db.execute('''DELETE FROM depts WHERE departmentname = ?''',[depname])
+        db.close()
+        return
+    }
+
+    
 }

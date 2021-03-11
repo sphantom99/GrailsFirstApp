@@ -48,9 +48,11 @@
     <h1 style="margin-left: 45%; margin-top: 5%;">Or...</h1></legend>
     <g:link controller="Department" action="addForm" >
         <span style=" margin-left: 40%;">
-        <button style="margin-top: 5%; padding-left: 50px; padding-right: 60px; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Add a Department</button>
+        <button style="margin-top: 5%; margin-bot: 5%; padding-left: 50px; padding-right: 60px; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Add a Department</button>
         </span>
         </g:link>
+        <br/>
+        <br/>
         <br/>
 
 </div>
