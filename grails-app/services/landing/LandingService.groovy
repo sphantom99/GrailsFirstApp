@@ -7,10 +7,10 @@ import groovy.sql.Sql
 class LandingService {
     def dataSource
     def temp
-
+    static scope = "session"
     def getDeps() {
         def db = new Sql(dataSource)
-        temp = db.rows('select * from depts')
+        temp = db.rows('select * from depts') //
         db.close()
         return temp
     }

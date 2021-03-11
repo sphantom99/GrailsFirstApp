@@ -5,11 +5,13 @@ import groovy.sql.Sql
 class EachdepService {
 
     def dataSource
-
+    static scope = "session"
     def getEmps(dep) {  
         def db = new Sql(dataSource)
-        def temps = db.rows('SELECT firstName,lastName,id FROM employee WHERE department IN (SELECT id FROM depts WHERE departmentName = ?)',[dep])
+        def temps = db.rows('''SELECT firstName,lastName,id 
+        FROM employee WHERE department 
+        IN (SELECT id FROM depts WHERE departmentName = ?)''',[dep])
         db.close()
         return temps
-    }//why is this not working
+    }
 }
