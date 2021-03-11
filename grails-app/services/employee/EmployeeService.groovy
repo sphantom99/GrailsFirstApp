@@ -8,7 +8,7 @@ import java.sql.Date
 class EmployeeService {
 
     def dataSource
-    static scope = "session"
+    static scope = 'session'
     def getEmpDetails(String empID) {
         def db = new Sql(dataSource)
         def temp = db.rows("SELECT * FROM employee WHERE id = ?::int",[empID])
@@ -44,13 +44,21 @@ class EmployeeService {
         args[0] = args[0].toInteger()
         
         
-        def success = db.execute('''UPDATE employee 
+        db.execute('''UPDATE employee 
         SET firstName = ?, lastName = ?, afm = ?, dob = ?, 
         department = ? WHERE id = ?''',[args[1],args[2],args[3],args[4],args[5],args[0]])
         db.close()
         //return args
-        return success
+        
         //catch(Exception e){return e}*/
     
+    }
+
+    def deleteEmployee(empid){
+        def db = new Sql(dataSource)
+        empid = empid.toInteger()
+        db.execute('''DELETE FROM employee WHERE id = ?''',[empid])
+        db.close()
+        
     }
 }

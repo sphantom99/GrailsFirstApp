@@ -5,6 +5,7 @@ class EmployeeController {
     def employeeService
     def landingService
 
+
     def index() {
         def data = employeeService.getEmpDetails(params.id)
         render data
@@ -51,9 +52,16 @@ class EmployeeController {
         def department = params.department
         def dob = year+"-"+ month+"-"+day 
         def args = [empid,first_name,last_name,afm,dob,department]
+        if(params.subbtn == 'update'){
+            employeeService.updateEmployee(args)
+        }
+        else if(params.subbtn=='delete'){
+            employeeService.deleteEmployee(empid)
+        }
+        //render params
         //render args
-        employeeService.updateEmployee(args)
+        //
         //render ret
-        redirect(controller:'landing',action: 'index')
+        redirect(controller:"landing")
     }
 }

@@ -5,7 +5,7 @@ import groovy.sql.Sql
 class EachdepService {
 
     def dataSource
-    static scope = "session"
+    static scope = 'session'
     def getEmps(dep) {  
         def db = new Sql(dataSource)
         def temps = db.rows('''SELECT firstName,lastName,id 

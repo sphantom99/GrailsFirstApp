@@ -30,14 +30,20 @@
     </div>
     </nav>
 <h1> These are the departments </h1>
-<ul>
-    
+
+<div class="container" style="border-color: red;">
+
     <g:each var="c" in="${dept}">
-        <li class="controller">
-            <g:link controller="Department" action="index" params = "[deptid: c.departmentName]">${c.departmentname}</g:link>
-        </li>
+        
+        <g:link controller="Department" action="index" params = "[deptid: c.departmentName]">
+        <span style=" margin-left: 40%; min-width: 1000px; ;">
+        <button style="margin-top: 5%; padding-left: 100px; padding-right: 150px; max-width:250px; "type="button" class="btn btn-large .btn-block btn-primary">${c.departmentname}</button>
+        </span>
+        </g:link>
+        <br/>
     </g:each>
-</ul>
+
+</div>
 
 </body>
 </html>
