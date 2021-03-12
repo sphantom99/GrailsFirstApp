@@ -11,7 +11,8 @@ class EmployeeService {
     static scope = 'session'
     def getEmpDetails(String empID) {
         def db = new Sql(dataSource)
-        def temp = db.rows("SELECT * FROM employee WHERE id = ?::int",[empID])
+        empID = empID.toInteger()
+        def temp = db.rows('SELECT * FROM employee WHERE id = ?',[empID])
         db.close()
         return temp
     }

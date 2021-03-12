@@ -12,7 +12,8 @@ class LandingService {
 
     def getDeps() {
         def db = new Sql(dataSource)
-        def temp = db.rows('''select * from depts''') 
+        def temp = db.rows('''select * from  depts''') 
+
         db.close()
         return temp
     }
