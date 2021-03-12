@@ -12,20 +12,19 @@ class LoginController {
         if(request.method == 'POST'){
             def exists = loginService.checkIfExists(params.username,params.password)
             if(exists){
-                session.user = params.username
+                session['data'] = [username: params.username, active: true]
                 redirect(controller:'landing')
             }
             else {
                 flash.message = "User not found"
-                render(view:'login',model:[err:[true]])
+                render(view:'login',model:[err:[errc :true])
             }
         }        
     }
 
     def logout(){
-        if(session.user){
-            session.invalidate()
-            redirect(controller:'login')
-        }
+        session.invalidate()
+        render(view:'login')
+        
     }
 }

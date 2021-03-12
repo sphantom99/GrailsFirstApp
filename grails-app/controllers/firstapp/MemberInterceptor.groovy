@@ -6,13 +6,14 @@ class MemberInterceptor {
     MemberInterceptor(){
         matchAll().excludes(controller:'login')
     }
-    boolean before() { true /*
-        if(session.user){
+    boolean before() {
+        if(session?.data?.active==true){
             return true
         }
         else {
+            redirect(controller:'login')
             return false
-        }*/
+        }
     }
 
     boolean after() { true }

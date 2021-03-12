@@ -16,4 +16,12 @@ class LoginService {
         }
         else return false
     }
+
+    def checkSession(){
+        if(session.getAttribute('data').getAttribute('active')==true)
+        return true
+    }
+    else{
+        return false
+    }
 }

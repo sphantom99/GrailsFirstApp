@@ -21,6 +21,9 @@
             <li class="nav-item">
             <a class="nav-link active" href="/departments" tabindex="-1">Departments</a>
             </li>
+            <li class="nav-item">
+            <g:link class="nav-link active" url = "/login/logout">Logout</g:link>
+            </li>
         </ul>
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

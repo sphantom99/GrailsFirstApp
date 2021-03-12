@@ -3,8 +3,6 @@ package firstapp
 class LandingController {
 
     def landingService
-
-
     def index() {
     def depts = landingService.getDeps()
         //render depts

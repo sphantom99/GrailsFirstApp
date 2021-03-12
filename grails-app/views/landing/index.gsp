@@ -16,10 +16,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-            <g:link url ="/"><a class="nav-link active" aria-current="page" href="#">Home</a></g:link>
+            <g:link url ="/" class="nav-link active" aria-current="page">Home</g:link>
             </li>
             <li class="nav-item">
             <a class="nav-link active" href="/departments" tabindex="-1">Departments</a>
+            </li>
+            <li class="nav-item">
+            <g:link class="nav-link active" url = "/login/logout">Logout</g:link>
             </li>
         </ul>
         <form class="d-flex">
