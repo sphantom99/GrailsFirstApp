@@ -16,8 +16,8 @@ class EmployeeController {
         def data = employeeService.getEmpDetails(params.empid)
         def depts = landingService.getDeps()
         def args = data + [depts] + params.empid
-        //render args
-        render(view:"show" , model: [emp: args])
+        //render params
+        render(view:"show" , model: [emp: args, dep: params.deptid])
     }
 
     def addIndex(){

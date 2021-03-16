@@ -2,14 +2,16 @@
 <img src="./images/image7.png">
 
 # Departments
-<img src="./images/image2.png">
+<img src="./images/landing.png">
+<img src="./images/landing2.png">
 
 # Click On Department
-<img src="./images/image6.png"> 
+<img src="./images/depIndex.png"> 
 
 # ViewEmployees
-<img src="./images/image3.png">
-<img src="./images/image4.png">
+<img src="./images/viewEmps.png">
+
+
 
 # ViewEmployeeDetails
 <img src="./images/image5.png">

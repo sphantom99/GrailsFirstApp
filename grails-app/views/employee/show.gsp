@@ -46,7 +46,7 @@
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="system_id" placeholder="${emp[2]}" value="${emp[2]}" class="form-control"  type="text">
+            <input readonly name="system_id" placeholder="${emp[2]}" value="${emp[2]}" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -79,7 +79,9 @@
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
         <select name="department" class="form-control selectpicker">
-        
+        <g:if test="${dep}">
+        <option value="">${dep}</option>
+        </g:if>
         <option value="">Select your Department</option>
         <g:each var="c" in="${emp[1]}">
         <option value="${c.id}">${c.departmentname}</option>

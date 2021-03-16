@@ -1,4 +1,4 @@
-package firstapp
+package department
 import grails.gorm.transactions.Transactional
 import groovy.sql.Sql
 @Transactional

@@ -1,4 +1,4 @@
-package firstapp
+package employee
 
 import grails.gorm.transactions.Transactional
 import groovy.sql.Sql
@@ -9,7 +9,7 @@ class EmployeeService {
 
     def dataSource
     static scope = 'session'
-    def getEmpDetails(String empID) {
+    def getEmpDetails(empID) {
         def db = new Sql(dataSource)
         empID = empID.toInteger()
         def temp = db.rows('SELECT * FROM employee WHERE id = ?',[empID])
