@@ -1,4 +1,4 @@
-package firstapp
+package landing
 
 import grails.gorm.transactions.Transactional
 import groovy.sql.Sql

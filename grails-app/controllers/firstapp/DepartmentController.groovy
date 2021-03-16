@@ -57,7 +57,12 @@ class DepartmentController {
     }
 
     def deleteDepartment(){
-        eachdepService.deleteDepartment(params.deptid)
+        try{
+            eachdepService.deleteDepartment(params.deptid)
+        }
+        catch(Exception e){
+            render "Could not delete department.. Check if its empty"
+        }
         redirect(controller:"landing")
         return
     }

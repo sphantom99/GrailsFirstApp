@@ -37,21 +37,43 @@
 
 
 <div class="container">
-    <legend><h1 style="margin-left: 43%; margin-top: 5%;">${dep}</h1></legend>
+    <div style="margin-top: 5%; text-align: center;"><h1 style="color: white;">${dep}</h1></div>
+    <ul style="list-style: none">
+    <li>
     <g:link controller="Department" action="viewEmps" params = "[deptid: dep]">
-    <button style="margin-top: 4%; margin-left: 10%;padding-left: 100px; padding-right: 100px;  font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">View Employees</button>
+    <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">View Employees</button>
     </g:link>
-
+    </li>
+    <li>
     <g:link controller="Department" action="updateForm" params = "[deptid: dep]">
-    <button style="margin-top: 4%; padding-left: 100px; padding-right: 100px;  font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Update Name</button>
+    <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px;  width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Update Name</button>
     </g:link>
-
+    </li>
+    <li>
+    <g:link controller="Employee" action="addIndex" params = "[deptid: dep]">
+    <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px;  width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Add an employee</button>
+    </g:link>
+    </li>
+    <li>
     <g:link controller="Department" action="deleteDepartment" params = "[deptid: dep]">
-    <button style="margin-top: 4%; padding-left: 100px; padding-right: 100px;  font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-danger">Delete Department</button>
+    <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-danger">Delete Department</button>
     </g:link>
-
+    </li>
+    </ul>
 
 </div>
 </fieldset>
+<style>
+body{
+    background-image: url('https://youmatter.world/app/uploads/sites/2/2019/11/tech-planet.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+button:hover,
+button:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em)
+}
+</style>
 </body>
 </html>

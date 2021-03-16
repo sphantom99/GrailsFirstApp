@@ -17,7 +17,7 @@ class LoginController {
             }
             else {
                 flash.message = "User not found"
-                render(view:'login',model:[err:[errc :true])
+                render(view:'login',model:[err:[errc :true]])
             }
         }        
     }

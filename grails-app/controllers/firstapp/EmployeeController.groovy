@@ -22,7 +22,8 @@ class EmployeeController {
 
     def addIndex(){
         def deps = landingService.getDeps()
-        render(view: "addIndex", model: [dep: deps])
+        
+        render(view: "addIndex", model: [dep: deps, dept: params.deptid])
         //render(view:)
     }
     def add(){

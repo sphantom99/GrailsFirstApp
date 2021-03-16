@@ -47,7 +47,7 @@
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+            <input  required minlength=2 maxlength=50 name="first_name" placeholder="First Name" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                <input required minlength=2 maxlength=50 name="last_name" placeholder="Last Name" class="form-control"  type="text">
             </div>
             </div>
     </div>
@@ -70,6 +70,9 @@
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
         <select name="department" class="form-control selectpicker">
+        <g:if test="${dept}">
+        <option value="">${dept}</option>
+        </g:if>
         <option value="">Select your Department</option>
         <g:each var="c" in="${dep}">
         <option value="${c.id}">${c.departmentName}</option>
@@ -87,7 +90,7 @@
         <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-    <input name="afm" placeholder="ex. 123456789" class="form-control" type="text">
+    <input name="afm" required minlength=9 maxlength=9 placeholder="ex. 123456789" class="form-control" type="text">
         </div>
     </div>
     </div>
