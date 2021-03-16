@@ -16,3 +16,5 @@
 # ViewEmployeeDetails
 <img src="./images/image5.png">
 
+# Department Name update
+<img src="./images/depUpdate.png">
