@@ -37,7 +37,7 @@ class EmployeeController {
         def department = params.department
         def dob = year+"-"+ month+"-"+day 
         def args = [first_name,last_name,afm,dob,department]
-        def ret = employeeService.addEmployee(args)
+        def ret = employeeService.addEmployee(first_name,last_name,afm,dob,department)
         redirect(controller: 'landing',action: 'index')
     }
 
@@ -54,7 +54,7 @@ class EmployeeController {
         def dob = year+"-"+ month+"-"+day 
         def args = [empid,first_name,last_name,afm,dob,department]
         if(params.subbtn == 'update'){
-            employeeService.updateEmployee(args)
+            employeeService.updateEmployee(empid,first_name,last_name,afm,dob,department)
         }
         else if(params.subbtn=='delete'){
             employeeService.deleteEmployee(empid)

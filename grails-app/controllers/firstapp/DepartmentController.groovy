@@ -11,6 +11,7 @@ class DepartmentController {
     }
     def viewEmps(){
         emps = eachdepService.getEmps(params.deptid)
+        //render emps
         render(view: "viewEmps", model:[employees: emps]) 
         return
 

@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <h5 class="card-title">${employees.get(c+2).firstname}</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <g:link  controller="Employee" action="show" params="[empid: employees.get(c+1).id, deptid:params.deptid]"><Button type="button" class="btn btn-primary" style="margin-left: 37%"> View </Button></g:link>
+                            <g:link  controller="Employee" action="show" params="[empid: employees.get(c+2).id, deptid:params.deptid]"><Button type="button" class="btn btn-primary" style="margin-left: 37%"> View </Button></g:link>
                         </div>
                     </div>
                 </div>  
