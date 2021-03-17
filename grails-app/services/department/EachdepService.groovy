@@ -14,11 +14,15 @@ class EachdepService {
             IN (SELECT id FROM depts WHERE departmentName = ?)''',[dep])
             db.close()
             return temps
+        }catch(Exception e){
+            //TODO kanto pantoy!!!!
+            e.printStackTrace();
+            return 'error'
         }
-        catch(Exception e){return 'error'}
     }
 
     def addDepartment(depName){
+        //FIXME na ginei opws parapanw
         try{
         def db = new Sql(dataSource)
         db.execute('''INSERT INTO depts(departmentName) VALUES(?)''',[depName])
