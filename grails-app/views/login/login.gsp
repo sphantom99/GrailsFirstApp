@@ -16,13 +16,13 @@
             <div class="card">
                 <g:form class="box" controller="login" action="doLogin" method="POST">
                     <h1>Login</h1>
-                    <g:if test="${err?:errc ==true}">
-                    <p style="color: red"> Wrong combination of username/password</p>
+                    <g:if test="${flash.message}">
+                    <p style="color: red">${flash.message}</p>
                     </g:if>
                     <g:else>
                     <p class="text-muted"> Please enter your login and password!</p> 
                     </g:else>
-                    <input placeholder="username"required type="text" name="username" > 
+                    <input placeholder="Username"required type="text" name="username" >
                     <input required type="password" name="password" placeholder="Password"> 
                     <a class="forgot text-muted" href="#">Forgot password?</a> 
                     <input type="submit" name="subbtn" value="Login">
