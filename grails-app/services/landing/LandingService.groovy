@@ -6,18 +6,19 @@ import groovy.sql.Sql
 @Transactional
 class LandingService {
     def dataSource
-    
+
 
     static scope = 'session'
 
     def getDeps() {
-        try{
+        try {
             def db = new Sql(dataSource)
-            def temp = db.rows('''select * from  depts''') 
+            def temp = db.rows("""select * from  depts""")
 
             db.close()
             return temp
+        } catch (Exception e) {
+            return 'error'
         }
-        catch(Exception e){return 'error'}
     }
 }
