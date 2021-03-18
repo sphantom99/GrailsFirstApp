@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
 
-<body> 
     <g:render template="/shared/navbar" />
 
 
@@ -56,7 +53,7 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
         <select id="select" name="department" class="form-control selectpicker">
         <g:if test="${dep}">
-        <option value="">${dep}</option>
+        <option value="${emp[0]?.department}">${dep}</option>
         </g:if>
         <option value="">Select your Department</option>
         <g:each var="c" in="${emp[1]}">

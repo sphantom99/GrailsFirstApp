@@ -1,4 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<asset:stylesheet src="bootstrap.min.css"/>
+
+    </head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 <div class="container-fluid">
     <a class="navbar-brand" href="/departments">Knowledge</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
