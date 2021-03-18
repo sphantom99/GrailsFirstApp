@@ -10,7 +10,7 @@
         <g:form class="well form-horizontal" controller="employee" action="update" method="post"  id="contact_form">
         <fieldset>
     <!-- Form Name -->
-        <legend><h2><b>${emp[0].firstname}${emp[0].lastname}</b></h2></legend><br>
+        <legend><h2><b>${employee.firstname} ${employee.lastname}</b></h2></legend><br>
 
     <!-- Text input-->
 
@@ -19,7 +19,7 @@
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="systemID" readonly name="system_id" placeholder="${emp[2]}" value="${emp[2]}" class="form-control"  type="text">
+            <input id="systemID" readonly name="system_id" value="${employee.id}" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="firstName" name="first_name" placeholder="${emp[0].firstname}" value="${emp[0].firstname}" class="form-control"  type="text">
+            <input id="firstName" name="first_name" placeholder="${employee.firstname}" value="${employee.firstname}" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input id="lastName" name="last_name" placeholder="${emp[0].lastname}" value="${emp[0].lastname}" class="form-control"  type="text">
+                <input id="lastName" name="last_name" placeholder="${employee.lastname}" value="${employee.lastname}" class="form-control"  type="text">
             </div>
             </div>
     </div>
@@ -53,11 +53,11 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
         <select id="select" name="department" class="form-control selectpicker">
         <g:if test="${dep}">
-        <option value="${emp[0]?.department}">${dep}</option>
+        <option value="${employee?.department}">${dep}</option>
         </g:if>
         <option value="">Select your Department</option>
-        <g:each var="c" in="${emp[1]}">
-        <option value="${c.id}">${c.departmentname}</option>
+        <g:each var="department" in="${departments}">
+        <option value="${department.id}">${department.departmentname}</option>
         </g:each>
         </select>
     </div>
@@ -72,7 +72,7 @@
         <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-    <input id="afm" name="afm" placeholder="${emp[0].afm}" value="${emp[0].afm}" class="form-control" type="text">
+    <input id="afm" name="afm" placeholder="${employee.afm}" value="${employee.afm}" class="form-control" type="text">
         </div>
     </div>
     </div>
@@ -81,7 +81,7 @@
       <div class="form-group">
       <label for="datetimepicker9" class="col-md-4 control-label">DOB</label>
          <div class='input-group date' id='datetimepicker9'>
-            <g:datePicker class="form-control"id="datetimepicker9" name="dob" value="${emp[0].dob}"
+            <g:datePicker class="form-control"id="datetimepicker9" name="dob" value="${employee.dob}"
               precision="day" years="${1960..2003}"/>
             <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar">
