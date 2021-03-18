@@ -9,14 +9,14 @@ class EachdepService {
     def dataSource
     static scope = 'session'
 
-    def getEmps(dep) {
+    def getEmployees(dep) {
         try {
             def db = new Sql(dataSource)
-            def temps = db.rows("""SELECT firstName,lastName,id 
+            def employees = db.rows("""SELECT firstName,lastName,id 
             FROM employee WHERE department 
             IN (SELECT id FROM depts WHERE departmentName = $dep)""")
             db.close()
-            return temps
+            return employees
         } catch (Exception e) {
             //TODO kanto pantoy!!!!
             e.printStackTrace();

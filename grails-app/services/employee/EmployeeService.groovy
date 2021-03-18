@@ -15,11 +15,12 @@ class EmployeeService {
         try {
             def db = new Sql(dataSource)
             employeeID = employeeID.toInteger()
-            def temp = db.rows("SELECT * FROM employee WHERE id = $employeeID")
+            def employee = db.rows("SELECT * FROM employee WHERE id = $employeeID")
             db.close()
-            return temp
+            return employee
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }

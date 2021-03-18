@@ -32,7 +32,7 @@
     </li>
     <li>
     <g:link controller="Department" action="deleteDepartment" params = "[deptid: dep]">
-    <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-danger">Delete Department</button>
+    <button onclick="return confirm('Are you sure you want to delete this department?')" style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-danger">Delete Department</button>
     </g:link>
     </li>
     </ul>

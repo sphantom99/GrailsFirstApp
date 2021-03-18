@@ -10,7 +10,7 @@ class DepartmentController {
      render(view:"index", model:[dep: params.deptid])
     }
     def viewEmps(){
-        emps = eachdepService.getEmps(params.deptid)
+        emps = eachdepService.getEmployees(params.deptid)
         //render emps
         render(view: "viewEmps", model:[employees: emps]) 
         return
