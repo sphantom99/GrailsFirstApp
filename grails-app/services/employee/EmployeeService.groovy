@@ -14,7 +14,7 @@ class EmployeeService {
     def getEmpDetails(employeeID) {
         try {
             def db = new Sql(dataSource)
-            empID = empID.toInteger()
+            employeeID = employeeID.toInteger()
             def temp = db.rows("SELECT * FROM employee WHERE id = $employeeID")
             db.close()
             return temp
@@ -50,7 +50,7 @@ class EmployeeService {
             //return args
             dob = Date.valueOf(dob)
             department = department.toInteger()
-            empid = empid.toInteger()
+            employeeID = employeeID.toInteger()
             db.execute("""UPDATE employee 
             SET firstName = $firstName, lastName = $lastName, afm = $afm, dob = $dob, 
             department = $department WHERE id = $employeeID""")
@@ -66,7 +66,7 @@ class EmployeeService {
     def deleteEmployee(employeeID) {
         try {
             def db = new Sql(dataSource)
-            empid = empid.toInteger()
+            employeeID = employeeID.toInteger()
             db.execute("""DELETE FROM employee WHERE id = $employeeID""")
             db.close()
         }
