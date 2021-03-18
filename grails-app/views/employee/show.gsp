@@ -18,21 +18,21 @@
     <!-- Text input-->
 
    <div class="form-group">
-        <label class="col-md-4 control-label">System ID</label>  
+        <label for="systemID" class="col-md-4 control-label">System ID</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input readonly name="system_id" placeholder="${emp[2]}" value="${emp[2]}" class="form-control"  type="text">
+            <input id="systemID" readonly name="system_id" placeholder="${emp[2]}" value="${emp[2]}" class="form-control"  type="text">
             </div>
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label">First Name</label>  
+        <label for="firstName" class="col-md-4 control-label">First Name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="first_name" placeholder="${emp[0].firstname}" value="${emp[0].firstname}" class="form-control"  type="text">
+            <input id="firstName" name="first_name" placeholder="${emp[0].firstname}" value="${emp[0].firstname}" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -40,21 +40,21 @@
     <!-- Text input-->
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Last Name</label> 
+        <label for="lastName" class="col-md-4 control-label" >Last Name</label>
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="last_name" placeholder="${emp[0].lastname}" value="${emp[0].lastname}" class="form-control"  type="text">
+                <input id="lastName" name="last_name" placeholder="${emp[0].lastname}" value="${emp[0].lastname}" class="form-control"  type="text">
             </div>
             </div>
     </div>
 
     <div class="form-group"> 
-    <label class="col-md-4 control-label">Department</label>
+    <label for="select" class="col-md-4 control-label">Department</label>
         <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-        <select name="department" class="form-control selectpicker">
+        <select id="select" name="department" class="form-control selectpicker">
         <g:if test="${dep}">
         <option value="">${dep}</option>
         </g:if>
@@ -71,18 +71,18 @@
     <!-- Text input-->
         
     <div class="form-group">
-    <label class="col-md-4 control-label">AFM</label>  
+    <label for="afm" class="col-md-4 control-label">AFM</label>
         <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-    <input name="afm" placeholder="${emp[0].afm}" value="${emp[0].afm}" class="form-control" type="text">
+    <input id="afm" name="afm" placeholder="${emp[0].afm}" value="${emp[0].afm}" class="form-control" type="text">
         </div>
     </div>
     </div>
 
     <div class="col-md-4" style="height:130px;">
       <div class="form-group">
-      <label class="col-md-4 control-label">DOB</label>
+      <label for="datetimepicker9" class="col-md-4 control-label">DOB</label>
          <div class='input-group date' id='datetimepicker9'>
             <g:datePicker class="form-control"id="datetimepicker9" name="dob" value="${emp[0].dob}"
               precision="day" years="${1960..2003}"/>

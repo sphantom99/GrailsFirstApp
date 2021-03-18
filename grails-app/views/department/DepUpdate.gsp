@@ -18,21 +18,21 @@
 
     <!-- Text input-->
     <div class="form-group">
-        <label class="col-md-4 control-label">Old Department Name</label>  
+        <label for="oldName" class="col-md-4 control-label">Old Department Name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  readonly value="${name}"required name="old_department_name" placeholder="ex. Marketing" class="form-control"  type="text">
+            <input id="oldName" readonly value="${name}"required name="old_department_name" placeholder="ex. Marketing" class="form-control"  type="text">
             </div>
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label">New Department Name</label>  
+        <label for="newName" class="col-md-4 control-label">New Department Name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  value="${name}"required name="department_name" placeholder="ex. Marketing" class="form-control"  type="text">
+            <input id="newName" value="${name}"required name="department_name" placeholder="ex. Marketing" class="form-control"  type="text">
             </div>
         </div>
     </div>

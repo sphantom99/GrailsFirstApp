@@ -20,11 +20,11 @@
     <!-- Text input-->
 
     <div class="form-group">
-        <label class="col-md-4 control-label">Department Name</label>  
+        <label for="departmentName" class="col-md-4 control-label">Department Name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  required name="department_name" placeholder="ex. Marketing" class="form-control"  type="text">
+            <input id="departmentName" required name="department_name" placeholder="ex. Marketing" class="form-control"  type="text">
             </div>
         </div>
     </div>

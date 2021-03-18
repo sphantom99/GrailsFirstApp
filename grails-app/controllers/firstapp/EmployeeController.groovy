@@ -19,8 +19,8 @@ class EmployeeController {
             return
         }
         def depts = landingService.getDeps()
-        def args = data + [depts] + params.empid
-        //render params
+        def args = employeeData + [depts] + params.empid
+        //render parms
         render(view: "show", model: [emp: args, dep: params.deptid])
     }
 

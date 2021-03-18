@@ -19,11 +19,11 @@
     <!-- Text input-->
 
     <div class="form-group">
-        <label class="col-md-4 control-label">First Name</label>  
+        <label for="firstName" class="col-md-4 control-label">First Name</label>
         <div class="col-md-4 inputGroupContainer">
             <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  required minlength=2 maxlength=50 name="first_name" placeholder="First Name" class="form-control"  type="text">
+            <input id="firstName" required minlength=2 maxlength=50 name="first_name" placeholder="First Name" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -31,21 +31,21 @@
     <!-- Text input-->
 
     <div class="form-group">
-        <label class="col-md-4 control-label" >Last Name</label> 
+        <label for="lastName" class="col-md-4 control-label" >Last Name</label>
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input required minlength=2 maxlength=50 name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                <input id="lastName" required minlength=2 maxlength=50 name="last_name" placeholder="Last Name" class="form-control"  type="text">
             </div>
             </div>
     </div>
 
     <div class="form-group"> 
-    <label class="col-md-4 control-label">Department</label>
+    <label for="select" class="col-md-4 control-label">Department</label>
         <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-        <select name="department" class="form-control selectpicker">
+        <select id="select" name="department" class="form-control selectpicker">
         <g:if test="${dept}">
         <option value="">${dept}</option>
         </g:if>
@@ -62,18 +62,18 @@
     <!-- Text input-->
         
     <div class="form-group">
-    <label class="col-md-4 control-label">AFM</label>  
+    <label for="afm" class="col-md-4 control-label">AFM</label>
         <div class="col-md-4 inputGroupContainer">
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-    <input name="afm" required minlength=9 maxlength=9 placeholder="ex. 123456789" class="form-control" type="text">
+    <input id="afm" name="afm" required minlength=9 maxlength=9 placeholder="ex. 123456789" class="form-control" type="text">
         </div>
     </div>
     </div>
 
     <div class="col-md-4" style="height:130px;">
       <div class="form-group">
-      <label class="col-md-4 control-label">AFM</label>
+      <label for="datetimepicker9" class="col-md-4 control-label">AFM</label>
          <div class='input-group date' id='datetimepicker9'>
             <g:datePicker class="form-control"id="datetimepicker9" name="dob" value="${new Date()}"
               precision="day" years="${1960..2003}"/>
