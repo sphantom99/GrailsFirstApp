@@ -9,37 +9,42 @@ class DepartmentController {
     def index() {
      render(view:"index", model:[dep: params.deptid])
     }
-    def viewEmps(){
+    def viewEmployees(){
         emps = eachdepService.getEmployees(params.deptid)
         //render emps
-        render(view: "viewEmps", model:[employees: emps]) 
-        return
-
+        render(view: "viewEmployees", model:[employees: emps])
     }
 
     def updateForm(){
-        render(view:"DepUpdate", model:[name: params.deptid])
-        return
+        render(view:"DepartmentUpdate", model:[name: params.deptid])
     }
     def addForm(){
-        render(view:"DepAdd")
+        render(view:"DepartmentAdd")
         return
     }
     
     def addDepartment(){
         //render params
+        def exists
         def existingDepartments
         existingDepartments = landingService.getDeps()
-        render existingDepartments
+        //render existingDepartments[0].departmentname
         existingDepartments.each{
             if(params.department_name == it.departmentname){
-                render(view:"DepAdd", model:[err: True])
-                return
+                flash.message = "Department Already Exists"
+                //render params.department_name
+                exists = true
+                return 0
             }
         }
-        eachdepService.addDepartment(params.department_name)
-        redirect(controller:"landing")
-        return
+        if(exists){
+            render(view:"DepartmentAdd")
+        }else{
+            eachdepService.addDepartment(params.department_name)
+            redirect(controller:"landing")
+            return
+        }
+
     }
 
     def updateDepartment(){
@@ -48,7 +53,7 @@ class DepartmentController {
         render existingDepartments
         existingDepartments.each{
             if(params.department_name == it.departmentname){
-                render(view:"DepAdd", model:[err: True])
+                render(view:"DepartmentAdd", model:[err: True])
                 return
             }
         }
