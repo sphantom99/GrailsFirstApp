@@ -12,7 +12,7 @@
     <div style="margin-top: 5%; text-align: center;"><h1 style="color: white;">${dep}</h1></div>
     <ul style="list-style: none">
     <li>
-    <g:link controller="Department" action="viewEmps" params = "[deptid: dep]">
+    <g:link controller="Department" action="viewEmployees" params = "[deptid: dep]">
     <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">View Employees</button>
     </g:link>
     </li>
