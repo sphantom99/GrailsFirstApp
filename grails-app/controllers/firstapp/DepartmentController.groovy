@@ -28,7 +28,7 @@ class DepartmentController {
         //render params
         def exists
         def existingDepartments
-        existingDepartments = landingService.getDeps()
+        existingDepartments = landingService.getDepartments()
         //render existingDepartments[0].departmentname
         existingDepartments.each {
             if (params.department_name == it.departmentname) {
@@ -49,7 +49,7 @@ class DepartmentController {
     def updateDepartment() {
         def exists
         def existingDepartments
-        existingDepartments = landingService.getDeps()
+        existingDepartments = landingService.getDepartments()
         //render existingDepartments
         existingDepartments.each {
             if (params.department_name == it.departmentname) {

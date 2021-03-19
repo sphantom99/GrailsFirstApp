@@ -12,14 +12,13 @@ class EmployeeController {
             render "Something went wrong with fetching this employee"
             return
         }
-        def allDepartments = landingService.getDeps()
-        employeeData = employeeData[0] //TODO: make use of firstrow function
+        def allDepartments = landingService.getDepartments()
         //render employeeData.id
         render(view: "show", model: [employee: employeeData, departments: allDepartments, dep: params.deptid])
     }
 
     def addIndex() {
-        def departments = landingService.getDeps()
+        def departments = landingService.getDepartments()
 
         render(view: "addIndex", model: [dep: departments, dept: params.deptid])
         //render(view:)

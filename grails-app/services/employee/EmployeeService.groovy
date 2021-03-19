@@ -15,7 +15,7 @@ class EmployeeService {
         try {
             def db = new Sql(dataSource)
             employeeID = employeeID.toInteger()
-            def employee = db.rows("SELECT * FROM employee WHERE id = $employeeID")
+            def employee = db.firstRow("SELECT * FROM employee WHERE id = $employeeID")
             db.close()
             return employee
         }

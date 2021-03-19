@@ -10,7 +10,7 @@ class LandingService {
 
     static scope = 'session'
 
-    def getDeps() {
+    def getDepartments() {
         try {
             def db = new Sql(dataSource)
             def temp = db.rows("""select * from  depts""")
