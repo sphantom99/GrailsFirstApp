@@ -6,12 +6,6 @@ class EmployeeController {
     def landingService
 
 
-    def index() {
-        def data = employeeService.getEmpDetails(params.id)
-        render data
-//        render(view:"employee" model:[emp : data])
-    }
-
     def show() {
         def employeeData = employeeService.getEmpDetails(params.empid)
         if (!employeeData) {
@@ -25,9 +19,9 @@ class EmployeeController {
     }
 
     def addIndex() {
-        def deps = landingService.getDeps()
+        def departments = landingService.getDeps()
 
-        render(view: "addIndex", model: [dep: deps, dept: params.deptid])
+        render(view: "addIndex", model: [dep: departments, dept: params.deptid])
         //render(view:)
     }
 
@@ -58,7 +52,7 @@ class EmployeeController {
         def department = params.department
         def dob = year + "-" + month + "-" + day
         def args = [empid, first_name, last_name, afm, dob, department]
-        if (params.subbtn == 'update') {
+        if (params.subbtn == 'update') { //check to see which button was pressed and act accordingly, could change
             employeeService.updateEmployee(empid, first_name, last_name, afm, dob, department)
         } else if (params.subbtn == 'delete') {
             employeeService.deleteEmployee(empid)

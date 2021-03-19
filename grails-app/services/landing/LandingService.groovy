@@ -18,6 +18,7 @@ class LandingService {
             db.close()
             return temp
         } catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }

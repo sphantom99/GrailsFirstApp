@@ -7,7 +7,7 @@ class MemberInterceptor {
         matchAll().excludes(controller:'login')
     }
     boolean before() {
-        if(session?.data?.active==true){
+        if(session?.user?.active==true){
             return true
         }
         else {

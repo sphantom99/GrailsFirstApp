@@ -40,6 +40,7 @@ class EmployeeService {
             return success
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }
@@ -59,6 +60,7 @@ class EmployeeService {
             //return args
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
 
@@ -72,6 +74,7 @@ class EmployeeService {
             db.close()
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }

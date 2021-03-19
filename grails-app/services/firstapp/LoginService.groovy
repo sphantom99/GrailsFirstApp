@@ -15,19 +15,14 @@ class LoginService {
                         WHERE username = $username 
                         AND pwd = $password """)
             db.close()
-            if (user[0] && user[0].isactive) {
-                return true
-            } else return false
+            return user[0] && user[0].isactive
         } catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }
 
     def checkSession() {
-        if (session.getAttribute('data').getAttribute('active') == true) {
-            return true
-        } else {
-            return false
-        }
+        return session?.user?.active == true
     }
 }

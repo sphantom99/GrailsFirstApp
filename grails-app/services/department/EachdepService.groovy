@@ -9,23 +9,21 @@ class EachdepService {
     def dataSource
     static scope = 'session'
 
-    def getEmployees(dep) {
+    def getEmployees(department) {
         try {
             def db = new Sql(dataSource)
             def employees = db.rows("""SELECT firstName,lastName,id 
             FROM employee WHERE department 
-            IN (SELECT id FROM depts WHERE departmentName = $dep)""")
+            IN (SELECT id FROM depts WHERE departmentName = $department)""")
             db.close()
             return employees
         } catch (Exception e) {
-            //TODO kanto pantoy!!!!
             e.printStackTrace();
             return 'error'
         }
     }
 
     def addDepartment(departmentName) {
-        //FIXME na ginei opws parapanw
         try {
             def db = new Sql(dataSource)
             db.execute("""INSERT INTO depts(departmentName) VALUES($departmentName)""")
@@ -33,6 +31,7 @@ class EachdepService {
             return
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }
@@ -44,9 +43,9 @@ class EachdepService {
                         SET departmentname = $newDepartmentName 
                         WHERE departmentname = $oldDepartmentName""")
             db.close()
-            return
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }
@@ -59,6 +58,7 @@ class EachdepService {
             return
         }
         catch (Exception e) {
+            e.printStackTrace()
             return 'error'
         }
     }

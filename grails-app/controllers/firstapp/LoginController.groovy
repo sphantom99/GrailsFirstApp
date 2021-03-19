@@ -12,7 +12,7 @@ class LoginController {
         if(request.method == 'POST'){
             def exists = loginService.checkIfExists(params.username,params.password)
             if(exists){
-                session['data'] = [username: params.username, active: true]
+                session['user'] = [username: params.username, active: true]
                 redirect(controller:'landing')
             }
             else {
