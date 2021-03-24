@@ -14,8 +14,10 @@ class EmployeesRESTController {
         def dob = year + "-" + month + "-" + day
        // def args = [firstName, lastName, afm, dob, department]
         def ret = employeeService.addEmployee(firstName, lastName, afm, dob, department)
-        if (ret!='error'){
+        if (ret!='error') {
             respond status: 200
+        }else {
+            respond status: 500
         }
     }
 }
