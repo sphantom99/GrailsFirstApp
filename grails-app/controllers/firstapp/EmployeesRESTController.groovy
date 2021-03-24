@@ -20,4 +20,17 @@ class EmployeesRESTController {
             respond status: 500
         }
     }
+
+    def getEmployee(){
+        def employeeID = params.ID
+        def employeeData = employeeService.getEmpDetails(employeeID)
+        if (!employeeData){
+            respond([status: 500,message:'Employee does not exist'])
+        }
+        if(employeeData!='error'){
+            respond employeeData
+        } else {
+            respond status: 500
+        }
+    }
 }
