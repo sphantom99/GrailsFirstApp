@@ -8,38 +8,56 @@ class DepartmentsRESTController {
 
     def getAllDepartments() {
         def departments = landingService.getDepartments()
-        if (departments == 'error'){
-            respond status: 500
-            return
-        }
-        if(departments){
+        if (departments!='error'){
             respond departments
-            departments
             return
+        } else{
+            respond([status: 500, message: 'Something went wrong with DB, can\'t fetch departments])
         }
     }
 
     def updateDepartment(){
         def oldName = params.oldName
         def newName = params.newName
-        eachdepService.updateDepartment(newName,oldName)
+        def returnValue = eachdepService.updateDepartment(newName,oldName)
+        if(returnValue!='error'){
         respond status: 200
-    }
+        } else {
+            respond([status: 500, message: 'Something went wrong with DB, can\'t update Department'])
+        }
+        }
 
     def deleteDepartment() {
         def departmentName = params.departmentName
-        eachdepService.deleteDepartment(departmentName)
-        respond status: 200
+        def returnValue = eachdepService.deleteDepartment(departmentName)
+        if(returnValue!='error'){
+            respond: status: 200
+        } else {
+            respond([status: 500, message:'Something went wrong with DB, can\'t delete Department'])
+        }
     }
 
     def addDepartment() {
         def departmentName = params.departmentName
-        eachdepService.addDepartment(departmentName)
+        def returnValue = eachdepService.addDepartment(departmentName)
+        if(returnValue!='error'){
+            respond status: 200
+        } else {
+            respond([status: 500, message:'Something went wrong with DB can\'t add Department'])
+        }
     }
 
     def getEmployees(){
         def departmentName = params.departmentName
         def employees = eachdepService.getEmployees(departmentName)
-        respond employees
+        if (!employees){
+            respond([status: 501, message:'Empty department'])
+        } else {
+            if(employees!='error') {
+                respond employees
+            } else {
+                respond([status: 500, message:'Something went wrong with DB can\'t getEmployees'])
+            }
+        }
     }
 }
