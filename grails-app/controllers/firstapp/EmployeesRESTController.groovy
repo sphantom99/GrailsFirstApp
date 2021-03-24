@@ -33,4 +33,23 @@ class EmployeesRESTController {
             respond status: 500
         }
     }
+
+
+    def updateEmployee(){
+        def employeeID = params.ID
+        def firstName = params.firstName
+        def lastName = params.lastName
+        def afm = params.afm
+        def year = params.dob_year
+        def month = params.dob_month
+        def day = params.dob_day
+        def department = params.department
+        def dob = year + "-" + month + "-" + day
+        def returnValue = employeeService.updateEmployee(employeeID,firstName,lastName,afm,dob,department)
+        if (returnValue!='error'){
+            respond status: 200
+        } else{
+            respond([status: 500, message: 'Something went wrong with the DB'])
+        }
+    }
 }
