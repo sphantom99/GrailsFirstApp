@@ -52,4 +52,14 @@ class EmployeesRESTController {
             respond([status: 500, message: 'Something went wrong with the DB'])
         }
     }
+
+    def deleteEmployee(){
+        def employeeID = params.ID
+        def returnValue = employeeService.deleteEmployee(employeeID)
+        if (returnValue!='error'){
+            respond status: 200
+        } else {
+            respond([status: 500, message: 'something went wrong with DB, did not delete employee'])
+        }
+    }
 }
