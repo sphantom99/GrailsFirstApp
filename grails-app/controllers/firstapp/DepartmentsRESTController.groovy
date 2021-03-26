@@ -12,7 +12,7 @@ class DepartmentsRESTController {
             respond departments
             return
         } else{
-            respond([status: 500, message: 'Something went wrong with DB, can\'t fetch departments])
+            respond([status: 500, message: 'Something went wrong with DB, can\'t fetch departments'])
         }
     }
 
