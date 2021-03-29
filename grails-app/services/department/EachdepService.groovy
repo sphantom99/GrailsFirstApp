@@ -12,7 +12,7 @@ class EachdepService {
     def getEmployees(department) {
         try {
             def db = new Sql(dataSource)
-            def employees = db.rows("""SELECT firstName,lastName,id 
+            def employees = db.rows("""SELECT * 
             FROM employee WHERE department 
             IN (SELECT id FROM depts WHERE departmentName = $department)""")
             db.close()

@@ -31,7 +31,7 @@ class DepartmentsRESTController {
         def departmentName = params.departmentName
         def returnValue = eachdepService.deleteDepartment(departmentName)
         if(returnValue!='error'){
-            respond: status: 200
+            respond status: 200
         } else {
             respond([status: 500, message:'Something went wrong with DB, can\'t delete Department'])
         }
