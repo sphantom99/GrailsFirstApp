@@ -64,6 +64,7 @@ dependencies {
     runtime "javax.xml.bind:jaxb-api:2.3.1"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:3.2.4"
     runtime "org.postgresql:postgresql:42.2.2"
+    implementation "com.auth0:java-jwt:3.14.0"
     testCompile "io.micronaut:micronaut-inject-groovy"
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.mockito:mockito-core"

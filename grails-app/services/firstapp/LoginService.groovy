@@ -25,4 +25,17 @@ class LoginService {
     def checkSession() {
         return session?.user?.active == true
     }
+
+    def apiLogin(username,password) {
+        def db = new Sql(dataSource)
+        def exists = db.firstRow("""SELECT * FROM users 
+                        WHERE username = $username 
+                        AND pwd = $password""")
+
+        if(exists.isactive){
+            return true
+        } else {
+            return false
+        }
+    }
 }
