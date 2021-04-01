@@ -45,10 +45,10 @@ class LoginRESTController {
         if (cookie) {
             try {
                 DecodedJWT jwt = JWT.decode(cookie.value)
-                println(jwt)
+                respond(status: 200, username: jwt.claims.username.toString())
             } catch(JWTDecodeException e) {
                 println(e)
-
+                respond(status: 400)
             }
         }
     }
