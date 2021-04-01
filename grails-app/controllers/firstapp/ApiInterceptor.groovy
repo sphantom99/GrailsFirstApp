@@ -18,11 +18,11 @@ class ApiInterceptor {
     }
 
     boolean before() {
-        
+
         println("Cookies:")
-        request.cookies.each { println(it.name + ", " + it.value) }
+        //request.cookies.each { println(it.name + ", " + it.value) }
         def cookie = request.cookies.find { it.name == "myCookie" }
-        println(cookie)
+        //println(cookie)
         if (cookie) {
             try {
                 Algorithm algorithm = Algorithm.HMAC256("mysecrets");
