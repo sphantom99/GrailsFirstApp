@@ -2,6 +2,9 @@
 grails:
     cors:
         enabled: true
+        allowedOrigins:
+            - http://localhost:3000
+        allowCredentials: true
     profile: web
     codegen:
         defaultPackage: firstapp

@@ -29,6 +29,7 @@ class DepartmentsRESTController {
 
     def deleteDepartment() {
         def departmentName = params.departmentName
+        println(departmentName)
         def returnValue = eachdepService.deleteDepartment(departmentName)
         if(returnValue!='error'){
             respond status: 200

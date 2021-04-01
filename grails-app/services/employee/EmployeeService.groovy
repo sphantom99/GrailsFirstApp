@@ -30,10 +30,10 @@ class EmployeeService {
             def db = new Sql(dataSource)
             //dob = new Date(args[3])
             //return args
-
+            //println(dob)
             dob = Date.valueOf(dob)
             department = department.toInteger()
-            def success = db.execute("""INSERT INTO 
+            def success = db.execute("""INSERT INTO
             employee(firstName,lastName,afm,dob,department) 
             VALUES($firstName,$lastName,$afm,$dob,$department)""")
             db.close()
