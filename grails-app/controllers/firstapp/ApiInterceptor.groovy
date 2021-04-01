@@ -18,6 +18,7 @@ class ApiInterceptor {
     }
 
     boolean before() {
+        
         println("Cookies:")
         request.cookies.each { println(it.name + ", " + it.value) }
         def cookie = request.cookies.find { it.name == "myCookie" }
