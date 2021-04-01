@@ -9,12 +9,12 @@ class DepartmentService {
     def dataSource
     static scope = 'session'
 
-    def getEmployees(department) {
+    def getEmployees(departmentID) {
         try {
+            departmentID = departmentID.toInteger()
             def db = new Sql(dataSource)
             def employees = db.rows("""SELECT * 
-            FROM employee WHERE department 
-            IN (SELECT id FROM depts WHERE departmentName = $department)""")
+            FROM employee WHERE department  = $departmentID""")
             db.close()
             return employees
         } catch (Exception e) {
@@ -36,12 +36,13 @@ class DepartmentService {
         }
     }
 
-    def updateDepartment(newDepartmentName, oldDepartmentName) {
+    def updateDepartment(newDepartmentName, departmentID) {
         try {
+            departmentID = departmentID.toInteger()
             def db = new Sql(dataSource)
             db.execute("""UPDATE depts 
                         SET departmentname = $newDepartmentName 
-                        WHERE departmentname = $oldDepartmentName""")
+                        WHERE id = $departmentID""")
             db.close()
         }
         catch (Exception e) {
@@ -50,10 +51,11 @@ class DepartmentService {
         }
     }
 
-    def deleteDepartment(departmentName) {
+    def deleteDepartment(departmentID) {
         try {
+            departmentID = departmentID.toInteger()
             def db = new Sql(dataSource)
-            db.execute("""DELETE FROM depts WHERE departmentname = $departmentName""")
+            db.execute("""DELETE FROM depts WHERE id = $departmentID""")
             db.close()
             return
         }

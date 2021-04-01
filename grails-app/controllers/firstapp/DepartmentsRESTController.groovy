@@ -17,9 +17,9 @@ class DepartmentsRESTController {
     }
 
     def updateDepartment(){
-        def oldName = params.oldName
+        def departmentID = params.departmentID
         def newName = params.newName
-        def returnValue = departmentService.updateDepartment(newName,oldName)
+        def returnValue = departmentService.updateDepartment(newName,departmentID)
         if(returnValue!='error'){
         respond status: 200
         } else {
@@ -28,9 +28,9 @@ class DepartmentsRESTController {
         }
 
     def deleteDepartment() {
-        def departmentName = params.departmentName
-        println(departmentName)
-        def returnValue = departmentService.deleteDepartment(departmentName)
+        def departmentID = params.departmentID
+        //println(departmentName)
+        def returnValue = departmentService.deleteDepartment(departmentID)
         if(returnValue!='error'){
             respond status: 200
         } else {
@@ -49,8 +49,8 @@ class DepartmentsRESTController {
     }
 
     def getEmployees(){
-        def departmentName = params.departmentName
-        def employees = departmentService.getEmployees(departmentName)
+        def departmentID = params.departmentID
+        def employees = departmentService.getEmployees(departmentID)
         if (!employees){
             respond([status: 501, message:'Empty department'])
         } else {
