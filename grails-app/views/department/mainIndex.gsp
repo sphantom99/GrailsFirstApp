@@ -9,11 +9,11 @@
 
 <div class="container" style="border-color: red;">
     <legend><h1 style="margin-left: 30%; margin-top: 10%; color: white; font-weight: bold; ">Check Out Our Departments! </h1></legend>
-    <g:each var="c" in="${dept}">
+    <g:each var="department" in="${departments}">
         
-        <g:link controller="Department" action="index" params = "[deptid: c.departmentName, id: c.id]">
+        <g:link controller="Department" action="index" params = "[departmentName: department.departmentName, departmentID: department.id]">
         <span style=" margin-left: 40%; min-width: 1000px; ;">
-        <button style="margin-top: 4%; padding-left: 50px; padding-right: 200px; max-width:250px; font-weight: bold; font-size: large; background-image: linear-gradient(to right, #006eff 0%,#4d9aff 100%); border-radius: 20px; text-align: center;"type="button" class="btn btn-large .btn-block btn-primary">${c.departmentname}</button>
+        <button style="margin-top: 4%; padding-left: 50px; padding-right: 200px; max-width:250px; font-weight: bold; font-size: large; background-image: linear-gradient(to right, #006eff 0%,#4d9aff 100%); border-radius: 20px; text-align: center;"type="button" class="btn btn-large .btn-block btn-primary">${department.departmentname}</button>
         </span>
         </g:link>
         <br/>

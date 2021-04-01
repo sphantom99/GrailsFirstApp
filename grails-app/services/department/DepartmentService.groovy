@@ -65,5 +65,16 @@ class DepartmentService {
         }
     }
 
+    def getDepartments() {
+        try {
+            def db = new Sql(dataSource)
+            def temp = db.rows("""select * from  depts""")
 
+            db.close()
+            return temp
+        } catch (Exception e) {
+            e.printStackTrace()
+            return 'error'
+        }
+    }
 }

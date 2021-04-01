@@ -13,7 +13,7 @@ class LoginController {
             def exists = loginService.checkIfExists(params.username,params.password)
             if(exists){
                 session['user'] = [username: params.username, active: true]
-                redirect(controller:'landing')
+                redirect(controller:'department',action:'mainIndex')
             }
             else {
                 flash.message = "User not found"

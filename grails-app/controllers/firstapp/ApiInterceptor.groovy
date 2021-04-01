@@ -10,10 +10,10 @@ import com.auth0.jwt.interfaces.JWTVerifier
 class ApiInterceptor {
 
     ApiInterceptor() {
-        matchAll().excludes(controller: 'loginREST').excludes(controller: 'department')
+        matchAll().excludes(controller: 'loginREST')
+                .excludes(controller: 'department')
                 .excludes(controller: 'employee')
                 .excludes(controller: 'login')
-                .excludes(controller: 'landing')
 
     }
 

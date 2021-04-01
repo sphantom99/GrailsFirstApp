@@ -3,20 +3,19 @@ package firstapp
 class DepartmentController {
 
     def departmentService
-    def landingService
 
     def index() {
-        render(view: "index", model: [dep: params.deptid, depid: params.id])
+        render(view: "index", model: [departmentName: params.departmentName, departmentID: params.departmentID])
     }
 
     def viewEmployees() {
-        def allEmployees = departmentService.getEmployees(params.deptid)
+        def allEmployees = departmentService.getEmployees(params.departmentID)
         //render emps
         render(view: "viewEmployees", model: [employees: allEmployees])
     }
 
     def updateForm() {
-        render(view: "DepartmentUpdate", model: [name: params.deptid])
+        render(view: "DepartmentUpdate", model: [name: params.departmentName, id: params.departmentID])
     }
 
     def addForm() {
@@ -28,7 +27,7 @@ class DepartmentController {
         //render params
         def exists
         def existingDepartments
-        existingDepartments = landingService.getDepartments()
+        existingDepartments = departmentService.getDepartments()
         //render existingDepartments[0].departmentname
         existingDepartments.each {
             if (params.department_name == it.departmentname) {
@@ -41,7 +40,7 @@ class DepartmentController {
             render(view: "DepartmentAdd")
         } else {
             departmentService.addDepartment(params.department_name)
-            redirect(controller: "landing")
+            redirect(action: "mainIndex")
         }
 
     }
@@ -49,7 +48,7 @@ class DepartmentController {
     def updateDepartment() {
         def exists
         def existingDepartments
-        existingDepartments = landingService.getDepartments()
+        existingDepartments = departmentService.getDepartments()
         //render existingDepartments
         existingDepartments.each {
             if (params.department_name == it.departmentname) {
@@ -63,8 +62,8 @@ class DepartmentController {
             render(view: "DepartmentUpdate")
         }
         else{
-            departmentService.updateDepartment(params.department_name, params.old_department_name)
-            redirect(controller: "landing")
+            departmentService.updateDepartment(params.department_name, params.departmentID)
+            redirect(action: "mainIndex")
             return
         }
 
@@ -72,13 +71,20 @@ class DepartmentController {
 
     def deleteDepartment() {
         try {
-            departmentService.deleteDepartment(params.deptid)
+            departmentService.deleteDepartment(params.departmentID)
         }
         catch (Exception e) {
             e.printStackTrace()
             render "Could not delete department.. Check if its empty"
         }
-        redirect(controller: "landing")
+        redirect(action: "mainIndex")
         return
+    }
+
+    def mainIndex() {
+        def Departments = departmentService.getDepartments()
+        println(Departments)
+        println(Departments[0])
+        render(view: "mainIndex", model: [departments: Departments])
     }
 }

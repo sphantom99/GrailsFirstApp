@@ -3,7 +3,7 @@ package firstapp
 class EmployeeController {
 
     def employeeService
-    def landingService
+    def departmentService
 
 
     def show() {
@@ -12,13 +12,13 @@ class EmployeeController {
             render "Something went wrong with fetching this employee"
             return
         }
-        def allDepartments = landingService.getDepartments()
+        def allDepartments = departmentService.getDepartments()
         //render employeeData.id
         render(view: "show", model: [employee: employeeData, departments: allDepartments, dep: params.deptid])
     }
 
     def addIndex() {
-        def departments = landingService.getDepartments()
+        def departments = departmentService.getDepartments()
 
         render(view: "addIndex", model: [dep: departments, dept: params.deptid])
         //render(view:)
@@ -36,7 +36,7 @@ class EmployeeController {
         def dob = year + "-" + month + "-" + day
         def args = [first_name, last_name, afm, dob, department]
         def ret = employeeService.addEmployee(first_name, last_name, afm, dob, department)
-        redirect(controller: 'landing', action: 'index')
+        redirect(controller: 'department', action: 'mainIndex')
     }
 
     def update() {
@@ -60,6 +60,6 @@ class EmployeeController {
         //render args
         //
         //render ret
-        redirect(controller: "landing")
+        redirect(controller: "department", action: 'mainIndex')
     }
 }

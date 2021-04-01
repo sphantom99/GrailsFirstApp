@@ -14,6 +14,15 @@
         <legend><h2><b>${name}</b></h2></legend><br>
 
     <!-- Text input-->
+            <div class="form-group">
+                <label for="oldName" class="col-md-4 control-label">Old Department Name</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="oldName" readonly value="${id}"required name="departmentID" class="form-control"  type="text">
+                    </div>
+                </div>
+            </div>
     <div class="form-group">
         <label for="oldName" class="col-md-4 control-label">Old Department Name</label>
         <div class="col-md-4 inputGroupContainer">

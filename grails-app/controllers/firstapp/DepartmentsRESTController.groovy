@@ -3,11 +3,11 @@ package firstapp
 class DepartmentsRESTController {
 
     def departmentService
-    def landingService
+
 
 
     def getAllDepartments() {
-        def departments = landingService.getDepartments()
+        def departments = departmentService.getDepartments()
         if (departments!='error'){
             respond departments
             return

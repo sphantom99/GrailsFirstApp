@@ -9,25 +9,25 @@
 
 
 <div class="container">
-    <div style="margin-top: 5%; text-align: center;"><h1 style="color: white;">${dep}</h1></div>
+    <div style="margin-top: 5%; text-align: center;"><h1 style="color: white;">${departmentName}</h1></div>
     <ul style="list-style: none">
     <li>
-    <g:link controller="Department" action="viewEmployees" params = "[deptid: dep]">
+    <g:link controller="Department" action="viewEmployees" params = "[departmentName: departmentName, departmentID: departmentID]">
     <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">View Employees</button>
     </g:link>
     </li>
     <li>
-    <g:link controller="Department" action="updateForm" params = "[deptid: dep]">
+    <g:link controller="Department" action="updateForm" params = "[departmentName: departmentName, departmentID: departmentID]">
     <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px;  width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Update Name</button>
     </g:link>
     </li>
     <li>
-    <g:link controller="Employee" action="addIndex" params = "[deptid: dep]">
+    <g:link controller="Employee" action="addIndex" params = "[departmentName: departmentName, departmentID: departmentID]">
     <button style="margin-top: 4%; margin-left: 30%; border-radius: 20px;  width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-primary">Add an employee</button>
     </g:link>
     </li>
     <li>
-    <g:link controller="Department" action="deleteDepartment" params = "[deptid: dep]">
+    <g:link controller="Department" action="deleteDepartment" params = "[departmentName: departmentName, departmentID: departmentID]">
     <button onclick="return confirm('Are you sure you want to delete this department?')" style="margin-top: 4%; margin-left: 30%; border-radius: 20px; width: 400px; text-align: center; font-weight: bold; font-size: large; "type="button" class="btn btn-large .btn-block btn-danger">Delete Department</button>
     </g:link>
     </li>
