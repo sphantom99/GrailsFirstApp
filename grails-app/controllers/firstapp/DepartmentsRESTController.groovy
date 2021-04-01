@@ -2,7 +2,7 @@ package firstapp
 
 class DepartmentsRESTController {
 
-    def eachdepService
+    def departmentService
     def landingService
 
 
@@ -19,7 +19,7 @@ class DepartmentsRESTController {
     def updateDepartment(){
         def oldName = params.oldName
         def newName = params.newName
-        def returnValue = eachdepService.updateDepartment(newName,oldName)
+        def returnValue = departmentService.updateDepartment(newName,oldName)
         if(returnValue!='error'){
         respond status: 200
         } else {
@@ -30,7 +30,7 @@ class DepartmentsRESTController {
     def deleteDepartment() {
         def departmentName = params.departmentName
         println(departmentName)
-        def returnValue = eachdepService.deleteDepartment(departmentName)
+        def returnValue = departmentService.deleteDepartment(departmentName)
         if(returnValue!='error'){
             respond status: 200
         } else {
@@ -40,7 +40,7 @@ class DepartmentsRESTController {
 
     def addDepartment() {
         def departmentName = params.departmentName
-        def returnValue = eachdepService.addDepartment(departmentName)
+        def returnValue = departmentService.addDepartment(departmentName)
         if(returnValue!='error'){
             respond status: 200
         } else {
@@ -50,7 +50,7 @@ class DepartmentsRESTController {
 
     def getEmployees(){
         def departmentName = params.departmentName
-        def employees = eachdepService.getEmployees(departmentName)
+        def employees = departmentService.getEmployees(departmentName)
         if (!employees){
             respond([status: 501, message:'Empty department'])
         } else {

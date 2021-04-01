@@ -2,7 +2,7 @@ package firstapp
 
 class DepartmentController {
 
-    def eachdepService
+    def departmentService
     def landingService
 
     def index() {
@@ -10,7 +10,7 @@ class DepartmentController {
     }
 
     def viewEmployees() {
-        def allEmployees = eachdepService.getEmployees(params.deptid)
+        def allEmployees = departmentService.getEmployees(params.deptid)
         //render emps
         render(view: "viewEmployees", model: [employees: allEmployees])
     }
@@ -40,7 +40,7 @@ class DepartmentController {
         if (exists) {
             render(view: "DepartmentAdd")
         } else {
-            eachdepService.addDepartment(params.department_name)
+            departmentService.addDepartment(params.department_name)
             redirect(controller: "landing")
         }
 
@@ -63,7 +63,7 @@ class DepartmentController {
             render(view: "DepartmentUpdate")
         }
         else{
-            eachdepService.updateDepartment(params.department_name, params.old_department_name)
+            departmentService.updateDepartment(params.department_name, params.old_department_name)
             redirect(controller: "landing")
             return
         }
@@ -72,7 +72,7 @@ class DepartmentController {
 
     def deleteDepartment() {
         try {
-            eachdepService.deleteDepartment(params.deptid)
+            departmentService.deleteDepartment(params.deptid)
         }
         catch (Exception e) {
             e.printStackTrace()

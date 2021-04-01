@@ -4,7 +4,7 @@ import grails.gorm.transactions.Transactional
 import groovy.sql.Sql
 
 @Transactional
-class EachdepService {
+class DepartmentService {
 
     def dataSource
     static scope = 'session'
