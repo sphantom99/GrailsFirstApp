@@ -32,7 +32,7 @@ class LoginService {
                         WHERE username = $username 
                         AND pwd = $password""")
 
-        if(exists.isactive){
+        if(exists && exists.isactive){
             return true
         } else {
             return false
