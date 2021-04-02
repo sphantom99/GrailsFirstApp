@@ -8,20 +8,20 @@ import com.auth0.jwt.JWT
 
 class MemberInterceptor {
 
-    MemberInterceptor(){
-        matchAll().excludes(controller:'departmentsREST')
-        .excludes(controller: 'employeesREST')
-        .excludes(controller: 'loginREST')
-        .excludes(controller: 'login')
+    MemberInterceptor() {
+        matchAll().excludes(controller: 'departmentsREST')
+                .excludes(controller: 'employeesREST')
+                .excludes(controller: 'loginREST')
+                .excludes(controller: 'login')
     }
+
     boolean before() {
 
-        if(session?.user?.active==true){
+        if (session?.user?.active == true) {
             return true
-        }
-        else {
+        } else {
             println("Blocked by Member")
-            redirect(controller:'login')
+            redirect(controller: 'login')
             return false
         }
     }

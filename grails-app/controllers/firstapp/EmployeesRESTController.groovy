@@ -3,6 +3,7 @@ package firstapp
 class EmployeesRESTController {
 
     def employeeService
+
     def addEmployee() {
         try {
             def firstName = params.firstName
@@ -16,9 +17,9 @@ class EmployeesRESTController {
             def args = [firstName, lastName, afm, dob, department]
 
             def ret = employeeService.addEmployee(firstName, lastName, afm, dob, department)
-            if (ret!='error') {
+            if (ret != 'error') {
                 respond status: 200
-            }else {
+            } else {
                 respond([status: 500, message: "Something went wrong with DB, can\'t add Employee"])
             }
         } catch (Exception e) {
@@ -28,14 +29,14 @@ class EmployeesRESTController {
 
     }
 
-    def getEmployee(){
+    def getEmployee() {
         try {
             def employeeID = params.ID
             def employeeData = employeeService.getEmpDetails(employeeID)
-            if (!employeeData){
-                respond([status: 404,message:'Employee does not exist'])
+            if (!employeeData) {
+                respond([status: 404, message: 'Employee does not exist'])
             }
-            if(employeeData!='error'){
+            if (employeeData != 'error') {
                 respond([status: 200, employeeData: employeeData])
             } else {
                 respond([status: 500, message: 'Something went wrong with DB can\'t get Employee'])
@@ -48,7 +49,7 @@ class EmployeesRESTController {
     }
 
 
-    def updateEmployee(){
+    def updateEmployee() {
         try {
             def employeeID = params.ID
             def firstName = params.firstName
@@ -59,10 +60,10 @@ class EmployeesRESTController {
             def day = params.dobDay
             def department = params.department
             def dob = year + "-" + month + "-" + day
-            def returnValue = employeeService.updateEmployee(employeeID,firstName,lastName,afm,dob,department)
-            if (returnValue!='error'){
+            def returnValue = employeeService.updateEmployee(employeeID, firstName, lastName, afm, dob, department)
+            if (returnValue != 'error') {
                 respond status: 200
-            } else{
+            } else {
                 respond([status: 500, message: 'Something went wrong with the DB'])
             }
         } catch (Exception e) {
@@ -72,11 +73,11 @@ class EmployeesRESTController {
 
     }
 
-    def deleteEmployee(){
+    def deleteEmployee() {
         try {
             def employeeID = params.ID
             def returnValue = employeeService.deleteEmployee(employeeID)
-            if (returnValue!='error'){
+            if (returnValue != 'error') {
                 respond status: 200
             } else {
                 respond([status: 500, message: 'something went wrong with DB, did not delete employee'])

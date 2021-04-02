@@ -10,7 +10,6 @@ class DepartmentController {
 
     def viewEmployees() {
         def allEmployees = departmentService.getEmployees(params.departmentID)
-        //render emps
         render(view: "viewEmployees", model: [employees: allEmployees])
     }
 
@@ -20,19 +19,15 @@ class DepartmentController {
 
     def addForm() {
         render(view: "DepartmentAdd")
-        return
     }
 
     def addDepartment() {
-        //render params
         def exists
         def existingDepartments
         existingDepartments = departmentService.getDepartments()
-        //render existingDepartments[0].departmentname
         existingDepartments.each {
             if (params.department_name == it.departmentname) {
                 flash.message = "Department Already Exists"
-                //render params.department_name
                 exists = true
             }
         }
@@ -49,7 +44,6 @@ class DepartmentController {
         def exists
         def existingDepartments
         existingDepartments = departmentService.getDepartments()
-        //render existingDepartments
         existingDepartments.each {
             if (params.department_name == it.departmentname) {
                 flash.message = "That department name already exists"
@@ -64,7 +58,6 @@ class DepartmentController {
         else{
             departmentService.updateDepartment(params.department_name, params.departmentID)
             redirect(action: "mainIndex")
-            return
         }
 
     }
@@ -78,13 +71,10 @@ class DepartmentController {
             render "Could not delete department.. Check if its empty"
         }
         redirect(action: "mainIndex")
-        return
     }
 
     def mainIndex() {
         def Departments = departmentService.getDepartments()
-        println(Departments)
-        println(Departments[0])
         render(view: "mainIndex", model: [departments: Departments])
     }
 }

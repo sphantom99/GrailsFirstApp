@@ -32,7 +32,7 @@ class LoginRESTController {
             } else {
                 respond([status: 500, message: 'User does not exist'])
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace()
             respond([status: 500, message: 'User does not exist'])
         }
@@ -46,7 +46,7 @@ class LoginRESTController {
             cookie.setPath('/')
             response.addCookie(cookie)
             respond(status: 200)
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace()
             respond([status: 500, message: 'Server Error, couldn\'t log out'])
         }
@@ -60,7 +60,7 @@ class LoginRESTController {
                 try {
                     DecodedJWT jwt = JWT.decode(cookie.value)
                     respond(status: 200, username: jwt.claims.username.toString())
-                } catch(JWTDecodeException e) {
+                } catch (JWTDecodeException e) {
                     println(e)
                     respond(status: 400)
                 }

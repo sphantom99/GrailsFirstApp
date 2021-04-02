@@ -54,7 +54,7 @@ class DepartmentsRESTController {
     }
 
     def addDepartment() {
-        try{
+        try {
             def departmentName = params.departmentName
             def returnValue = departmentService.addDepartment(departmentName)
             if (returnValue != 'error') {
