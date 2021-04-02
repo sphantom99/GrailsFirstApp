@@ -10,20 +10,28 @@ class LoginController {
     }
 
     def doLogin() {
-        if (request.method == 'POST') {
-            def exists = loginService.checkIfExists(params.username, params.password)
-            if (exists) {
-                session['user'] = [username: params.username, active: true]
-                redirect(controller: 'department', action: 'mainIndex')
-            } else {
-                flash.message = "User not found"
-                render(view: 'login')
+        try {
+            if (request.method == 'POST') {
+                def exists = loginService.checkIfExists(params.username, params.password)
+                if (exists) {
+                    session['user'] = [username: params.username, active: true]
+                    redirect(controller: 'department', action: 'mainIndex')
+                } else {
+                    flash.message = "User not found"
+                    render(view: 'login')
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace()
         }
     }
 
     def logout() {
-        session.invalidate()
-        render(view: 'login')
+        try {
+            session.invalidate()
+            render(view: 'login')
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
     }
 }

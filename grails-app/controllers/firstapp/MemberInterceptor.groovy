@@ -17,12 +17,16 @@ class MemberInterceptor {
 
     boolean before() {
 
-        if (session?.user?.active == true) {
-            return true
-        } else {
-            println("Blocked by Member")
-            redirect(controller: 'login')
-            return false
+        try {
+            if (session?.user?.active == true) {
+                return true
+            } else {
+                println("Blocked by Member")
+                redirect(controller: 'login')
+                return false
+            }
+        } catch (Exception e) {
+            e.printStackTrace()
         }
     }
 

@@ -18,25 +18,29 @@ class ApiInterceptor {
     }
 
     boolean before() {
+        try {
+            def cookie = request.cookies.find { it.name == "myCookie" }
 
-        def cookie = request.cookies.find { it.name == "myCookie" }
-
-        if (cookie) {
-            try {
-                Algorithm algorithm = Algorithm.HMAC256("mysecrets");
-                JWTVerifier verifier = JWT.require(algorithm)
-                        .withIssuer("GRAILS")
-                        .build(); //Reusable verifier instance
-                DecodedJWT jwt = verifier.verify(cookie.value);
-                return true
-            } catch (JWTVerificationException exception) {
-                println(exception)
+            if (cookie) {
+                try {
+                    Algorithm algorithm = Algorithm.HMAC256("mysecrets");
+                    JWTVerifier verifier = JWT.require(algorithm)
+                            .withIssuer("GRAILS")
+                            .build(); //Reusable verifier instance
+                    DecodedJWT jwt = verifier.verify(cookie.value);
+                    return true
+                } catch (JWTVerificationException exception) {
+                    println(exception)
+                    return false
+                }
+            } else {
+                println("Blocked by API")
                 return false
             }
-        } else {
-            println("Blocked by API")
-            return false
+        } catch (Exception e) {
+            e.printStackTrace()
         }
+
     }
 
     boolean after() { true }
