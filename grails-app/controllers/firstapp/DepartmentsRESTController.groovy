@@ -28,7 +28,7 @@ class DepartmentsRESTController {
             if (returnValue != 'error') {
                 respond status: 200
             } else {
-                respond([status: 500, message: 'Something went wrong with DB, can\'t update Department'])
+                respond([status: 400, message: 'Something went wrong with your request, can\'t update Department'])
             }
         } catch (Exception e) {
             e.printStackTrace()

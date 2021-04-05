@@ -64,6 +64,8 @@ class LoginRESTController {
                     println(e)
                     respond(status: 400)
                 }
+            } else {
+                respond([status: 401, message: 'Unauthorized'])
             }
         } catch (Exception e) {
             e.printStackTrace()

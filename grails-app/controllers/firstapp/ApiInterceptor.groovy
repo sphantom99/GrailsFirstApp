@@ -34,7 +34,9 @@ class ApiInterceptor {
                     return false
                 }
             } else {
+                response.status = 401
                 println("Blocked by API")
+
                 return false
             }
         } catch (Exception e) {
